@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
 
 namespace Chapter3
 {
-  public class Person
+  public  class Person
   {
     public int PersonId { get; set; }
     public string FirstName { get; set; }
@@ -14,8 +15,23 @@ namespace Chapter3
     public byte[] Photo { get; set; }
     public bool IsActive { get; set; }
     public int NumberOfCars { get; set; }
+
+    public int? PersonTypeId { get; set; }
+    public virtual PersonType PersonType { get; set; }
+    public virtual ICollection<Phone> Phones { get; set; }
+
+    public virtual ICollection<Company> Companies { get; set; }
+
+    public virtual Student Student { get; set; }
+    public Person ()
+    {
+      Phones = new HashSet<Phone> ();
+    }
+
+
   }
 
+ 
   public class PersonMap : EntityTypeConfiguration<Person>
   {
     public PersonMap ()
