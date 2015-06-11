@@ -22,7 +22,7 @@ namespace Chapter3
         .Add (new PersonMap ())
         .Add (new PersonTypeMap())
         .Add (new StudentMap ())
-        
+        .Add (new AddressMap ())
         ;
     }
   }
